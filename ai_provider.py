@@ -152,7 +152,7 @@ def _call_openrouter(prompt: str, system: str) -> str:
         messages.append({"role": "system", "content": system})
     messages.append({"role": "user", "content": prompt})
     resp = client.chat.completions.create(
-        model="mistralai/mistral-small-3.2-24b-instruct:free",
+        model="nvidia/llama-3.1-nemotron-nano-8b-v1:free",
         messages=messages,
         max_tokens=1000,
     )
