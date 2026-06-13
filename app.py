@@ -297,6 +297,7 @@ elif st.session_state["page"] == "ai_insights":
         "openai":    t("provider_openai", lang),
         "anthropic": t("provider_anthropic", lang),
         "gemini":    t("provider_gemini", lang),
+        "openrouter": "OpenRouter (Free)",
     }
     st.caption(f"🔌 {t('ai_provider', lang)}: **{provider_labels.get(st.session_state['ai_provider'], st.session_state['ai_provider'])}**  •  {t('nav_settings', lang)} → ⚙️")
 
