@@ -71,7 +71,7 @@ st.markdown("""
 
 # ─── Session state defaults ──────────────────────────────────────────────────
 
-def init_state()
+def init_state():
 
 # Auto-load keys from Streamlit secrets
 try:
