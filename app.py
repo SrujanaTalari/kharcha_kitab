@@ -139,8 +139,11 @@ with st.sidebar:
         "openai":    t("provider_openai", lang),
         "anthropic": t("provider_anthropic", lang),
         "gemini":    t("provider_gemini", lang),
+        "openrouter": "OpenRouter (Free)",
     }
-    st.caption(f"🔌 {t('ai_provider', lang)}: **{provider_labels[st.session_state['ai_provider']]}**")
+    provider = st.session_state['ai_provider']
+    label = provider_labels.get(provider, provider)
+    st.caption(f"🔌 {t('ai_provider', lang)}: **{label}**")
 
 # ─── Load data ───────────────────────────────────────────────────────────────
 
