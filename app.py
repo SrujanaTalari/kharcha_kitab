@@ -71,7 +71,23 @@ st.markdown("""
 
 # ─── Session state defaults ──────────────────────────────────────────────────
 
-def init_state():
+def init_state()
+
+# Auto-load keys from Streamlit secrets
+try:
+    if "anthropic_key" in st.secrets:
+        st.session_state["anthropic_key"] = st.secrets["anthropic_key"]
+        st.session_state["ai_provider"] = "anthropic"
+except Exception:
+    pass
+
+# Auto-load keys from Streamlit secrets
+try:
+    if "anthropic_key" in st.secrets:
+        st.session_state["anthropic_key"] = st.secrets["anthropic_key"]
+        st.session_state["ai_provider"] = "anthropic"
+except Exception:
+    pass:
     defaults = {
         "lang": "en",
         "ai_provider": "ollama",
@@ -89,6 +105,22 @@ def init_state():
             st.session_state[k] = v
 
 init_state()
+
+# Auto-load keys from Streamlit secrets
+try:
+    if "anthropic_key" in st.secrets:
+        st.session_state["anthropic_key"] = st.secrets["anthropic_key"]
+        st.session_state["ai_provider"] = "anthropic"
+except Exception:
+    pass
+
+# Auto-load keys from Streamlit secrets
+try:
+    if "anthropic_key" in st.secrets:
+        st.session_state["anthropic_key"] = st.secrets["anthropic_key"]
+        st.session_state["ai_provider"] = "anthropic"
+except Exception:
+    pass
 lang = st.session_state["lang"]
 
 # ─── Sidebar ─────────────────────────────────────────────────────────────────
