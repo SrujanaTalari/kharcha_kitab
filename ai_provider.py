@@ -12,7 +12,7 @@ def get_ai_response(prompt: str, system: str = "") -> str:
     Route the prompt to whichever AI provider is configured in session state.
     Returns the model's text response or an error string.
     """
-    provider = st.session_state.get("ai_provider", "ollama")
+    provider = st.session_state.get("ai_provider", "anthropic")
 
     try:
         if provider == "ollama":
@@ -119,3 +119,14 @@ Here is the user's expense data:
 {expenses_summary}
 
 Answer the user's question based on this data. If you cannot answer from the data, say so politely."""
+
+def load_keys_from_secrets():
+    try:
+        if "anthropic_key" in st.secrets:
+            st.session_state["anthropic_key"] = st.secrets["anthropic_key"]
+        if "openai_key" in st.secrets:
+            st.session_state["openai_key"] = st.secrets["openai_key"]
+        if "gemini_key" in st.secrets:
+            st.session_state["gemini_key"] = st.secrets["gemini_key"]
+    except Exception:
+        pass
