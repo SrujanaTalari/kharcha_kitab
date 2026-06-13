@@ -92,11 +92,11 @@ init_state()
 
 # Auto-load keys from Streamlit secrets
 try:
-    if "openrouter_key" in st.secrets:
+    if "openrouter_key" in st.secrets and not st.session_state.get("openrouter_key"):
         st.session_state["openrouter_key"] = st.secrets["openrouter_key"]
-    if "gemini_key" in st.secrets:
+    if "gemini_key" in st.secrets and not st.session_state.get("gemini_key"):
         st.session_state["gemini_key"] = st.secrets["gemini_key"]
-    if "anthropic_key" in st.secrets:
+    if "anthropic_key" in st.secrets and not st.session_state.get("anthropic_key"):
         st.session_state["anthropic_key"] = st.secrets["anthropic_key"]
 except Exception:
     pass
