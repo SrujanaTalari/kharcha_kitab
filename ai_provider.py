@@ -23,6 +23,10 @@ def get_ai_response(prompt: str, system: str = "") -> str:
             return _call_anthropic(prompt, system)
         elif provider == "gemini":
             return _call_gemini(prompt, system)
+        elif provider == "groq":
+            return _call_groq(prompt, system)
+        elif provider == "openrouter":
+            return _call_openrouter(prompt, system)
         else:
             return "Unknown provider selected."
     except Exception as e:
@@ -105,6 +109,49 @@ def _call_gemini(prompt: str, system: str) -> str:
     resp = model.generate_content(prompt)
     return resp.text
 
+
+
+# ── Groq ────────────────────────────────────────────────────────────────────
+
+def _call_groq(prompt: str, system: str) -> str:
+    api_key = st.session_state.get("groq_key", "")
+    if not api_key:
+        return "Groq API key not set. Please add it in Settings."
+    from groq import Groq
+    client = Groq(api_key=api_key)
+    messages = []
+    if system:
+        messages.append({"role": "system", "content": system})
+    messages.append({"role": "user", "content": prompt})
+    resp = client.chat.completions.create(
+        model="llama3-8b-8192",
+        messages=messages,
+        max_tokens=1000,
+    )
+    return resp.choices[0].message.content
+
+
+# ── OpenRouter ───────────────────────────────────────────────────────────────
+
+def _call_openrouter(prompt: str, system: str) -> str:
+    api_key = st.session_state.get("openrouter_key", "")
+    if not api_key:
+        return "OpenRouter API key not set."
+    import openai
+    client = openai.OpenAI(
+        api_key=api_key,
+        base_url="https://openrouter.ai/api/v1"
+    )
+    messages = []
+    if system:
+        messages.append({"role": "system", "content": system})
+    messages.append({"role": "user", "content": prompt})
+    resp = client.chat.completions.create(
+        model="mistralai/mistral-7b-instruct:free",
+        messages=messages,
+        max_tokens=1000,
+    )
+    return resp.choices[0].message.content
 
 # ── System prompt builder ───────────────────────────────────────────────────
 
