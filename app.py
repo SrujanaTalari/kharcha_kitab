@@ -94,7 +94,10 @@ init_state()
 try:
     if "openrouter_key" in st.secrets:
         st.session_state["openrouter_key"] = st.secrets["openrouter_key"]
-        st.session_state["ai_provider"] = "openrouter"
+    if "gemini_key" in st.secrets:
+        st.session_state["gemini_key"] = st.secrets["gemini_key"]
+    if "anthropic_key" in st.secrets:
+        st.session_state["anthropic_key"] = st.secrets["anthropic_key"]
 except Exception:
     pass
 
