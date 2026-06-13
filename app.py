@@ -92,9 +92,9 @@ init_state()
 
 # Auto-load keys from Streamlit secrets
 try:
-    if "anthropic_key" in st.secrets:
-        st.session_state["anthropic_key"] = st.secrets["anthropic_key"]
-        st.session_state["ai_provider"] = "anthropic"
+    if "gemini_key" in st.secrets:
+        st.session_state["gemini_key"] = st.secrets["gemini_key"]
+        st.session_state["ai_provider"] = "gemini"
 except Exception:
     pass
 
