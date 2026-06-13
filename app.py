@@ -298,7 +298,7 @@ elif st.session_state["page"] == "ai_insights":
         "anthropic": t("provider_anthropic", lang),
         "gemini":    t("provider_gemini", lang),
     }
-    st.caption(f"🔌 {t('ai_provider', lang)}: **{provider_labels[st.session_state['ai_provider']]}**  •  {t('nav_settings', lang)} → ⚙️")
+    st.caption(f"🔌 {t('ai_provider', lang)}: **{provider_labels.get(st.session_state['ai_provider'], st.session_state['ai_provider'])}**  •  {t('nav_settings', lang)} → ⚙️")
 
     # Chat history display
     for msg in st.session_state["ai_chat"]:
