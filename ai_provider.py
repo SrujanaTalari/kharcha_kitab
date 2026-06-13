@@ -137,7 +137,7 @@ def _call_openrouter(prompt: str, system: str) -> str:
     api_key = st.session_state.get("openrouter_key", "")
     if not api_key:
         try:
-            api_key = st.secrets.get("openrouter_key", "")
+            api_key = st.secrets["openrouter_key"]
         except Exception:
             pass
     if not api_key:
