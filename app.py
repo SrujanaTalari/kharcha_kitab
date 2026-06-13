@@ -354,7 +354,7 @@ elif st.session_state["page"] == "settings":
         t("provider_gemini", lang):    "gemini",
     }
     selected_label = [k for k, v in provider_options.items() if v == st.session_state["ai_provider"]]
-selected_label = selected_label[0] if selected_label else list(provider_options.keys())[0]
+    selected_label = selected_label[0] if selected_label else list(provider_options.keys())[0]
     new_provider_label = st.radio(t("ai_provider", lang), list(provider_options.keys()),
                                    index=list(provider_options.keys()).index(selected_label),
                                    label_visibility="collapsed")
