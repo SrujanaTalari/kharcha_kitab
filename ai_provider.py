@@ -99,7 +99,7 @@ def _call_gemini(prompt: str, system: str) -> str:
     import google.generativeai as genai
     genai.configure(api_key=api_key)
     model = genai.GenerativeModel(
-        "gemini-1.5-flash",
+        "gemini-2.0-flash",
         system_instruction=system if system else None,
     )
     resp = model.generate_content(prompt)
