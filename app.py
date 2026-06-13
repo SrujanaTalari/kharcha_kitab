@@ -400,6 +400,12 @@ elif st.session_state["page"] == "settings":
                             type="password", help=t("api_key_help", lang))
         st.session_state["gemini_key"] = key
 
+    elif st.session_state["ai_provider"] == "openrouter":
+        st.subheader("OpenRouter")
+        key = st.text_input(t("api_key", lang), value=st.session_state.get("openrouter_key", ""),
+                            type="password", help="Get free key at openrouter.ai")
+        st.session_state["openrouter_key"] = key
+
     st.divider()
 
     # Budget setting
