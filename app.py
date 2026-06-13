@@ -352,6 +352,7 @@ elif st.session_state["page"] == "settings":
         t("provider_openai", lang):    "openai",
         t("provider_anthropic", lang): "anthropic",
         t("provider_gemini", lang):    "gemini",
+        "OpenRouter (Free)": "openrouter",
     }
     selected_label = [k for k, v in provider_options.items() if v == st.session_state["ai_provider"]]
     selected_label = selected_label[0] if selected_label else list(provider_options.keys())[0]
