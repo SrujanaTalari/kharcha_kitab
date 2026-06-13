@@ -1,4 +1,3 @@
-# Pipeline disabled - using Streamlit Cloud for deployment
 workflow:
   rules:
     - when: never
