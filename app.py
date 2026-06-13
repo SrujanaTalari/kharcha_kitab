@@ -1,3 +1,5 @@
+cd /home/srujana/Downloads/kharcha_kitab
+head -20 app.py
 """
 Kharcha Kitab — AI-powered Expense Tracker
 ==========================================
